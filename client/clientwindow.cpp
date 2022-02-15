@@ -21,11 +21,10 @@ void ClientWindow::on_LoginButton_clicked()
     QString userpassword = ui->PasswordLineEdit->text();
     if (username == "123" && userpassword == "123")
     {
-        chat = new chatview(this);
+        myClient.startClient();
+        chat = new chatview(this, &myClient);
         hide();
         chat->show();
-        myClient.startClient();
-
     }
     else
         QMessageBox::warning(this, "Warning", "Wrong data!");

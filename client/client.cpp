@@ -7,9 +7,7 @@ void client::startClient()
     socket = new QTcpSocket();
     connect(socket, SIGNAL(readyRead()), this, SLOT(socketReady()));
     connect(socket, SIGNAL(disconnected()), this, SLOT(socketDisc()));
-    socket->connectToHost(QHostAddress::LocalHost, 1010);
-    socket->write("lolo");
-    socket->waitForBytesWritten(50);
+
 }
 void client::socketReady()
 {
@@ -18,4 +16,15 @@ void client::socketReady()
 void client::socketDisc()
 {
     socket->deleteLater();
+}
+
+bool client::sendData(QByteArray &byteMessage)
+{
+    qDebug() << "coonect tonhos";
+    socket->connectToHost(QHostAddress::LocalHost, 1010);
+    qDebug() << "write data :";
+    socket->write(byteMessage);
+    qDebug() << "send ata mess :";
+    socket->waitForBytesWritten(50);
+    return true;
 }

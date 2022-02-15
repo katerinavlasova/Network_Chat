@@ -19,6 +19,7 @@ public slots:
     void startClient();
     void socketReady();
     void socketDisc();
+    bool sendData(QByteArray &byteMessage);
 };
 
 #endif // CLIENT_H

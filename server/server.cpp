@@ -30,21 +30,21 @@ void server::incomingConnection(qintptr socketDescriptor)
 
 void server::socketReady()
 {
+    qDebug() << Data << " socket reay";
     haveInterlocutor = true;
     //clear previous data
     Data.clear();
 
     //read data from client
     Data = socket->readAll();
-/*    while (socket->waitForReadyRead(200))
-    {
-        while (socket->bytesAvailable() > 0)
-        {
-            Data.append(socket->readAll());
-            socket->flush();
-        }
-    }
-*/
+//    while (socket->waitForReadyRead(20))
+//    {
+//        while (socket->bytesAvailable() > 0)
+//        {
+//            Data.append(socket->readAll());
+//            socket->flush();
+//        }
+//    }
     qDebug() << Data << " debug output";
 
 }
