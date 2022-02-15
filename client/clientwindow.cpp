@@ -13,3 +13,9 @@ ClientWindow::~ClientWindow()
     delete ui;
 }
 
+
+void ClientWindow::on_LoginButton_clicked()
+{
+
+}
+

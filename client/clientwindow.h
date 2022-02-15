@@ -15,6 +15,9 @@ public:
     ClientWindow(QWidget *parent = nullptr);
     ~ClientWindow();
 
+private slots:
+    void on_LoginButton_clicked();
+
 private:
     Ui::ClientWindow *ui;
 };
