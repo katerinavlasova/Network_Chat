@@ -24,6 +24,8 @@ void ClientWindow::on_LoginButton_clicked()
         chat = new chatview(this);
         hide();
         chat->show();
+        myClient.startClient();
+
     }
     else
         QMessageBox::warning(this, "Warning", "Wrong data!");

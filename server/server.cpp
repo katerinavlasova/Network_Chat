@@ -35,7 +35,8 @@ void server::socketReady()
     Data.clear();
 
     //read data from client
-    while (socket->waitForReadyRead(200))
+    Data = socket->readAll();
+/*    while (socket->waitForReadyRead(200))
     {
         while (socket->bytesAvailable() > 0)
         {
@@ -43,6 +44,9 @@ void server::socketReady()
             socket->flush();
         }
     }
+*/
+    qDebug() << Data << " debug output";
+
 }
 
 void server::socketDisc()

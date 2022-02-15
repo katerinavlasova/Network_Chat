@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "chatview.h"
+#include "client.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ClientWindow; }
@@ -22,5 +23,6 @@ private slots:
 private:
     Ui::ClientWindow *ui;
     chatview *chat;
+    client myClient;
 };
 #endif // CLIENTWINDOW_H

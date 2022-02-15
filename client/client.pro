@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,11 +10,13 @@ CONFIG += c++11
 
 SOURCES += \
     chatview.cpp \
+    client.cpp \
     main.cpp \
     clientwindow.cpp
 
 HEADERS += \
     chatview.h \
+    client.h \
     clientwindow.h
 
 FORMS += \
