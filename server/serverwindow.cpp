@@ -23,6 +23,8 @@ void ServerWindow::on_LoginButton_clicked()
         chat = new ChatView(this);
         hide();
         chat->show();
+
+        myServer.startServer();
     }
     else
         QMessageBox::warning(this, "Warning", "Wrong data!");
