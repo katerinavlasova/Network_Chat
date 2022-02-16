@@ -22,6 +22,6 @@ void ChatView::on_sendDataButton_clicked()
     myServer->SendData(byteMessage);
 
     ui->messageLineEdit->clear();
-    ui->lineEdit_2->insert(message);
+    ui->ChattextBrowser->append(message);
 }
 

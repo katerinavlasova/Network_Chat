@@ -21,8 +21,7 @@ void chatview::on_sendButton_clicked()
     QByteArray byteMessage = message.toUtf8();
     Myclient->sendData(byteMessage);
     ui->MessagelineEdit->clear();
-    ui->chatLineEdit->insert(message);
-    ui->chatLineEdit->insert("\n");
+    ui->chattextBrowser->append(message);
 
 
 }
