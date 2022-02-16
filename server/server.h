@@ -28,8 +28,8 @@ public slots:
     void SendData(QByteArray &byteMessage);
 
 signals:
-    //signal to show picture
-    void showSignal(QByteArray &bytePicture);
+    //signal to show message in chat
+    void showSignal(QByteArray &byteMessage);
 };
 
 #endif // SERVER_H

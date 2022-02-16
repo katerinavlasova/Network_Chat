@@ -50,6 +50,7 @@ void server::socketReady()
         in >> byteMessage;
         strMessage = QString(byteMessage);
         qDebug() << strMessage;
+        emit showSignal(byteMessage);
     }
     //Data = socket->readAll();
 //    while (socket->waitForReadyRead(20))
