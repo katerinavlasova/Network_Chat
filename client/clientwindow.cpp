@@ -1,6 +1,7 @@
 #include "clientwindow.h"
 #include "ui_clientwindow.h"
 #include <QMessageBox>
+#include <QFile.h>
 
 ClientWindow::ClientWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,16 +18,34 @@ ClientWindow::~ClientWindow()
 
 void ClientWindow::on_LoginButton_clicked()
 {
+    QFile file("../users.txt");
+    if (!file.open(QIODevice::ReadOnly))
+    {
+        QMessageBox::warning(this, "Warning", "No data about users!");
+    }
     QString username = ui->NameLineEdit->text();
     QString userpassword = ui->PasswordLineEdit->text();
-    if (username == "123" && userpassword == "123")
+
+    QTextStream in(&file);
+    bool userFound = false;
+    while (!in.atEnd())
     {
-        myClient.startClient();
-        chat = new chatview(this, &myClient);
-        hide();
-        chat->show();
+        QString line = in.readLine();
+        QStringList fields = line.split(" ");
+        if (username == fields[0] && userpassword == fields[1])
+        {
+            userFound = true;
+            myClient.startClient();
+            chat = new chatview(this, &myClient);
+            hide();
+            chat->show();
+            file.close();
+            break;
+        }
     }
-    else
+    if (userFound == false)
+    {
         QMessageBox::warning(this, "Warning", "Wrong data!");
+    }
 }
 
