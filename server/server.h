@@ -4,6 +4,7 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QObject>
+#include <QVector>
 
 class server : public QTcpServer
 {
@@ -13,6 +14,8 @@ private:
     QTcpSocket *socket;
     QByteArray Data;
     bool haveInterlocutor;
+    QVector<QTcpSocket*> sockets;
+
 public:
     server();
     ~server();
@@ -22,6 +25,7 @@ public slots:
     void incomingConnection(qintptr socketDescriptor);
     void socketReady();
     void socketDisc();
+    void SendData(QByteArray &byteMessage);
 
 signals:
     //signal to show picture

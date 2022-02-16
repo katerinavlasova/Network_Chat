@@ -20,5 +20,10 @@ void chatview::on_sendButton_clicked()
     qDebug() << "text client :" << message;
     QByteArray byteMessage = message.toUtf8();
     Myclient->sendData(byteMessage);
+    ui->MessagelineEdit->clear();
+    ui->chatLineEdit->insert(message);
+    ui->chatLineEdit->insert("\n");
+
+
 }
 

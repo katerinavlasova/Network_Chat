@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>470</width>
     <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="messageLineEdit">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -54,7 +54,7 @@
     <rect>
      <x>40</x>
      <y>70</y>
-     <width>321</width>
+     <width>411</width>
      <height>151</height>
     </rect>
    </property>
@@ -62,6 +62,19 @@
     <font>
      <pointsize>15</pointsize>
     </font>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="sendDataButton">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>240</y>
+     <width>93</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Send</string>
    </property>
   </widget>
  </widget>
