@@ -1,5 +1,6 @@
 #include "chatview.h"
 #include "ui_chatview.h"
+#include <QTime>
 
 ChatView::ChatView(QWidget *parent, server *server) :
     QDialog(parent),
@@ -23,11 +24,13 @@ void ChatView::on_sendDataButton_clicked()
     myServer->SendData(byteMessage);
 
     ui->messageLineEdit->clear();
+    ui->ChattextBrowser->append(QTime::currentTime().toString());
     ui->ChattextBrowser->append(message);
 }
 
 void ChatView::showReceivedMessage(QByteArray &byteMessage)
 {
     QString stringMessage = QString(byteMessage);
+    ui->ChattextBrowser->append(QTime::currentTime().toString());
     ui->ChattextBrowser->append(stringMessage);
 }
