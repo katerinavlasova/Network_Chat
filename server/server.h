@@ -13,7 +13,6 @@ class server : public QTcpServer
 private:
     QTcpSocket *socket;
     QByteArray Data;
-    bool haveInterlocutor;
     QVector<QTcpSocket*> sockets;
 
 public:
@@ -25,6 +24,7 @@ public slots:
     void incomingConnection(qintptr socketDescriptor);
     void socketReady();
     void socketDisc();
+    //send data to client
     void SendData(QByteArray &byteMessage);
 
 signals:
