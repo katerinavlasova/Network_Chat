@@ -19,7 +19,6 @@ chatview::~chatview()
 void chatview::on_sendButton_clicked()
 {
     QString message = ui->MessagelineEdit->text();
-    qDebug() << "text client :" << message;
     QByteArray byteMessage = message.toUtf8();
     Myclient->sendData(byteMessage);
     ui->MessagelineEdit->clear();

@@ -19,6 +19,7 @@ public slots:
     void startClient();
     void socketReady();
     void socketDisc();
+    //send data to server
     bool sendData(QByteArray &byteMessage);
 
 signals:
