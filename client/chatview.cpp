@@ -18,10 +18,10 @@ chatview::~chatview()
 
 void chatview::on_sendButton_clicked()
 {
-    QString message = ui->MessagelineEdit->text();
+    QString message = ui->messageTextEdit->toPlainText();
     QByteArray byteMessage = message.toUtf8();
     Myclient->sendData(byteMessage);
-    ui->MessagelineEdit->clear();
+    ui->messageTextEdit->clear();
     ui->chattextBrowser->append(QTime::currentTime().toString());
     ui->chattextBrowser->append(message);
 }

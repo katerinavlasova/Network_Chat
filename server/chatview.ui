@@ -13,42 +13,6 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLineEdit" name="messageLineEdit">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>230</y>
-     <width>321</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>15</pointsize>
-    </font>
-   </property>
-  </widget>
-  <widget class="QLabel" name="PalNameLabel">
-   <property name="geometry">
-    <rect>
-     <x>130</x>
-     <y>10</y>
-     <width>131</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>18</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>               ...</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
   <widget class="QPushButton" name="sendDataButton">
    <property name="geometry">
     <rect>
@@ -66,9 +30,19 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>60</y>
+     <y>10</y>
      <width>421</width>
-     <height>161</height>
+     <height>211</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="messageTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>230</y>
+     <width>321</width>
+     <height>51</height>
     </rect>
    </property>
   </widget>
