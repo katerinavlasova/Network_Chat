@@ -7,6 +7,7 @@ chatview::chatview(QWidget *parent, client *Client) :
 {
     ui->setupUi(this);
     Myclient = Client;
+    connect(Myclient, SIGNAL(showSignal(QByteArray&)), this, SLOT(showReceivedMessage(QByteArray&)));
 }
 
 chatview::~chatview()
@@ -22,7 +23,10 @@ void chatview::on_sendButton_clicked()
     Myclient->sendData(byteMessage);
     ui->MessagelineEdit->clear();
     ui->chattextBrowser->append(message);
-
-
 }
 
+void chatview::showReceivedMessage(QByteArray &byteMessage)
+{
+    QString stringMessage = QString(byteMessage);
+    ui->chattextBrowser->append(stringMessage);
+}

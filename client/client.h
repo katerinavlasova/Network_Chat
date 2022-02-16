@@ -20,6 +20,10 @@ public slots:
     void socketReady();
     void socketDisc();
     bool sendData(QByteArray &byteMessage);
+
+signals:
+    //signal to show message in chat
+    void showSignal(QByteArray &byteMessage);
 };
 
 #endif // CLIENT_H

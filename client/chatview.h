@@ -18,6 +18,7 @@ public:
 
 private slots:
     void on_sendButton_clicked();
+    void showReceivedMessage(QByteArray &byteMessage);
 
 private:
     Ui::chatview *ui;

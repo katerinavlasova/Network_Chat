@@ -38,9 +38,20 @@ void server::socketReady()
     haveInterlocutor = true;
     //clear previous data
     Data.clear();
-    //socket = (QTcpSocket*)sender();
+    socket = (QTcpSocket*)sender();
     //read data from client
-    Data = socket->readAll();
+    QDataStream in(socket);
+    in.setVersion(QDataStream::Qt_6_2);
+    if (in.status() == QDataStream::Ok)
+    {
+        qDebug() << "read";
+        QString strMessage;
+        QByteArray byteMessage;
+        in >> byteMessage;
+        strMessage = QString(byteMessage);
+        qDebug() << strMessage;
+    }
+    //Data = socket->readAll();
 //    while (socket->waitForReadyRead(20))
 //    {
 //        while (socket->bytesAvailable() > 0)
@@ -50,7 +61,7 @@ void server::socketReady()
 //        }
 //    }
     //SendData(Data);
-    qDebug() << Data << " dwe";
+    //qDebug() << Data << " dwe";
 
 }
 
@@ -66,13 +77,17 @@ void server::SendData(QByteArray &byteMessage)
     Data.clear();
     qDebug() << "send data";
     //socket->write(Data);
-    Data = byteMessage;
+    QDataStream out(&Data, QIODevice::WriteOnly);
+    out.setVersion(QDataStream::Qt_6_2);
+    out << byteMessage;
+    //Data = byteMessage;
     //QString str = byteMessage.toStdString();
 
     for (int i = 0; i < sockets.size(); i++)
         sockets[i]->write(Data);
     //socket->connectToHost(QHostAddress::LocalHost, 1010);
-    qDebug() << "write data :" << Data;
+    QString mess = QString(byteMessage);
+    qDebug() << "write data :" << mess;
     //socket->write("all");
     //socket->write(byteMessage);
     qDebug() << "send ata mess :";
